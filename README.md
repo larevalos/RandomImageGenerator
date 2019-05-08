@@ -4,6 +4,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is the clientside of the random image application
 
+## Important [09/05/2019 9:52 AM]
+For register the user succesfully the password should meet the Identiy Framework default password policy.
+The password should have an uppercase + lowercase + symbol such as !% etc.
+
+
+It was my last implementation so I didn't have time enough to improve the registration page :)
+
 
 ## Description / features
 - React + Redux + Redux Saga implementation
