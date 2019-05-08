@@ -1,0 +1,26 @@
+html { 
+    font-family: 'Roboto', 
+    sans-serif; 
+}
+
+#app-site,
+.app-main {
+  width: 100%;
+  height: 100%;
+}
+
+.app-container {
+    flexGrow: 1;
+    overflow: 'hidden';
+    padding: '3px';
+  }
+
+.vertical30{
+    margin-top: 30%
+}
+.flex-basis0{
+  flex-basis: 0%
+}
+
+
+
