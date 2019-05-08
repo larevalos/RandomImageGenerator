@@ -9,7 +9,7 @@ import {
 } from "constants/ActionTypes";
 
 const fetchAllImagesRequest = async () =>
-   await fetch('https://localhost:44394/image')
+   await fetch('https://localhost:44394/image?limit=50')
     .then(images => {
         if (images.status === 401 ){
             localStorage.removeItem('isUserActive');
