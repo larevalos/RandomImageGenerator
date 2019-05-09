@@ -6,7 +6,7 @@ This is the clientside of the random image application
 
 ## Important [09/05/2019 9:52 AM]
 For register the user succesfully the password should meet the Identiy Framework default password policy.
--The password should have more than 8 digits 
+- The password should have more than 8 digits 
 - and have an uppercase + lowercase + symbol such as !% etc. 
 - and have at least 1 number
 
