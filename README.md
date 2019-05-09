@@ -4,8 +4,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 This is the clientside of the random image application
 
-## Important [09/05/2019 9:52 AM]
-For register the user succesfully the password should meet the Identiy Framework default password policy.
+## Important (Only if you have cloned the project before 1pm, as I found some time in my lunch time to fix this :) ) 
+
+The registration page is not givin feedback when the registration fails,
+For registering the user succesfully the password should meet the Identiy Framework default password policy.
 - The password should have more than 8 digits 
 - and have an uppercase + lowercase + symbol such as !% etc. 
 - and have at least 1 number
@@ -29,5 +31,5 @@ For register the user succesfully the password should meet the Identiy Framework
 Some improvements I could have done with more time
 - User feedback, not all the action display messages in the interface. Example when you swipe right or left a image (like/dislike) it doesn't display if it was succesfully saved or not.
 - User feedback, better notification design could have been implemented
-- Registration form, it was the last thing I added and as it wasn't required, I haven't included user feedback after registration (yes in console). I just redirected to login page.
+
 
