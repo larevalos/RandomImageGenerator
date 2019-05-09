@@ -33,7 +33,7 @@ class SignUp extends React.Component {
         if (this.props.showMessage) {
             setTimeout(() => {
             this.props.hideMessage();
-            }, 3000);
+            }, 80);
         }
         if (this.props.isUserActive === true
             || this.props.isSignUp ===false)  {
@@ -110,7 +110,9 @@ class SignUp extends React.Component {
                             <Button onClick={() => {
                             this.props.showAuthLoader();
                             this.props.userSignUp({email, password, firstName,lastName});
-                            this.props.toggleSignUpPage(false)
+                            (this.props.isSignUp ===false)  &&
+                                this.props.history.push('/');
+                          
                             }} variant="raised" color="primary">
                             SignUp
                             </Button>

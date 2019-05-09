@@ -9,10 +9,12 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import Grid from '@material-ui/core/Grid';
 import 'typeface-roboto';
 
+
 import {
     userSignIn,
     hideMessage,
-    showAuthLoader
+    showAuthLoader,
+    toggleSignUpPage
   } from "../actions/Auth";
 
   class SignIn extends React.Component {
@@ -33,6 +35,10 @@ import {
       if (this.props.authUser !== null) {
         this.props.history.push('/');
       }
+    }
+
+    componentDidMount(){
+      this.props.toggleSignUpPage(false);
     }
 
     render() {
@@ -115,5 +121,6 @@ import {
   export default connect(mapStateToProps, {
     userSignIn,
     hideMessage,
-    showAuthLoader
+    showAuthLoader,
+    toggleSignUpPage
   })(SignIn);

@@ -5,7 +5,7 @@ import {
     SIGNUP_USER
 } from "constants/ActionTypes";
 
-import {showAuthMessage, userSignInSuccess, userSignUp, userSignUpSuccess} from "../actions/Auth";
+import {showAuthMessage, userSignInSuccess, userSignUp, userSignUpSuccess,toggleSignUpPage} from "../actions/Auth";
 
 const signUpUserRequest = async  (body) => {
 
@@ -36,15 +36,36 @@ function* userSignUpAction({payload}){
 }
   try {
     const response = yield call(signUpUserRequest, body);
-    const result = yield response;
-    console.log('user created response', response)
-    if (result.error) {
-      yield put(showAuthMessage('Error'));  
-    } else {
+    const result =  response;
+    console.log('response received response', response)
+    if (result.status === 201) {
+      yield put(toggleSignUpPage(false));
+      yield put(showAuthMessage('User have been created'));  
       yield put(userSignUpSuccess(signInUser));
+      console.log('user created', result.status);
+
+        
+    } else {
+      
+      const responseJson =  yield response.json();
+      const finalResponse = responseJson; 
+      if (responseJson.detail){
+        yield put(showAuthMessage(responseJson.detail));
+      }else{
+        var fisrtValueKey = null;
+        var firstError = null;
+        var message = 'An error has ocurred';
+        (typeof finalResponse === 'object' && Object.keys(finalResponse).length > 0 ) && 
+          (fisrtValueKey = Object.keys(finalResponse)[0]);
+        fisrtValueKey &&
+          (firstError = finalResponse[fisrtValueKey][0]);
+        firstError && (message = firstError);
+        console.log('whole response',responseJson)
+        yield put(showAuthMessage(message));
+      }
     }
   }catch(error){
-    yield put(showAuthMessage(error));
+    yield put(showAuthMessage('User already created'));
     console.log('Sign up error', error)
   }
 }
